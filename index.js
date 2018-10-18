@@ -26,8 +26,11 @@ function showResults(json) {
 
 function createIssue() {
   //use this function to create an issue based on the values input in index.html
-  const title = document.getElementById('title').value
+  const title = $('#title').val();
+  // const title = document.getElementById('title').value
   const body = document.getElementById('body').value
+
+
 
   fetch(`/js-ajax-fetch-lab/issues/`, {
     method: 'POST',
