@@ -25,19 +25,21 @@ function showResults(json) {
 
 function createIssue() {
   //use this function to create an issue based on the values input in index.html
-  const issueTitle = document.getElementById('title').value
-  const issueBody = document.getElementById('body').value
-  const postData = { title: issueTitle, body: issueBody }
-  
-  fetch(`${baseApi}repos/${fork}/issues`, {
-    method: 'post',
-    headers: {
-      'Authorization': `token ${getToken()}`
-    },
-    body: JSON.stringify(postData)
-  }).then(resp => getIssues())
-}
+  const title = document.getElementById('title').value
+   const body = document.getElementById('body').value
 
+   fetch(`/js-ajax-fetch-lab/issues/`, {
+     method: 'POST',
+     title: JSON.stringify(title),
+     body: JSON.stringify(body),
+     headers: {
+     Authorization: `token ${getToken()}`
+     }
+   })
+   .then(res => res.json())
+   .then(json => console.log(json));
+ }
+ 
 function getIssues() {
   //once an issue is submitted, fetch all open issues to see the issues you are creating
   fetch(`/js-ajax-fetch-lab/issues/`, {
@@ -47,5 +49,4 @@ function getIssues() {
   })
   .then(res => res.json())
   .then(json => console.log(json));
-
 }
