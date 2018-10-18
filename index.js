@@ -21,6 +21,7 @@ function forkRepo() {
 
 function showResults(json) {
   //use this function to display the results from forking via the API
+  $("#issues").html(json => getIssues())
 }
 
 function createIssue() {
@@ -46,5 +47,5 @@ function getIssues() {
   })
   .then(res => res.json())
   .then(json => console.log(json));
-  
+
 }
