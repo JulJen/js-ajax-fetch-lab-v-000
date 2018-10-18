@@ -26,7 +26,7 @@ function showResults(json) {
 
 function createIssue() {
   //use this function to create an issue based on the values input in index.html
-  const title = $('#title').val();
+  const title = $('#title').get(0);
   // const title = document.getElementById('title').value
   const body = document.getElementById('body').value
 
