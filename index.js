@@ -1,4 +1,7 @@
-
+function showResults(json) {
+  //use this function to display the results from forking via the API
+  $("#results").html(forkRepo())
+}
 
 function forkRepo() {
   const repo = 'learn-co-curriculum/js-ajax-fetch-lab';
@@ -52,9 +55,4 @@ function getToken() {
   //change to your token to run in browser, but set
   //back to '' before committing so all tests pass
   return '';
-}
-
-function showResults(json) {
-  //use this function to display the results from forking via the API
-  $("#results").html(forkRepo())
 }
